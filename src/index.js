@@ -2,31 +2,43 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class Square extends React.Component {
-    // Add the constructor to initialize the state property
+// Function components section
+// The square class gets fully replaced with a function component instead.  Function components are a simpler way to write components that only contain a render() method
+// and don't have their own state.  (The square state is managed by the parent board component)
+// class Square extends React.Component {
+//     // Add the constructor to initialize the state property
+//
+//     // Square constructor is no longer needed once the board takes over management of the square state
+//
+//     // constructor(props) {
+//     //     // Always call super when defining the constructor of a subclass
+//     //     super(props);
+//     //     this.state = {
+//     //         value: null,  // The state is empty to start the game, will be updated to "X" or "O" in time
+//     //     };
+//     // }
+//
+//
+//     render() {
+//         return (
+//             <button
+//                 className="square"
+//                 onClick={() => this.props.onClick()}
+//             >
+//                 {this.props.value}
+//             </button>
+//         );
+//     }
+// }
 
-    // Square constructor is no longer needed once the board takes over management of the square state
-
-    // constructor(props) {
-    //     // Always call super when defining the constructor of a subclass
-    //     super(props);
-    //     this.state = {
-    //         value: null,  // The state is empty to start the game, will be updated to "X" or "O" in time
-    //     };
-    // }
-
-
-    render() {
-        return (
-            <button
-                className="square"
-                onClick={() => this.props.onClick()}
-            >
-                {this.props.value}
-            </button>
-        );
-    }
+function Square(props) {
+    return (
+        <button className="square" onClick={props.onClick}>
+            {props.value}
+        </button>
+    )
 }
+
 
 class Board extends React.Component {
     constructor(props) {
